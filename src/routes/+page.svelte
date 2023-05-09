@@ -4,11 +4,15 @@
   import Search from "../lib/search.svelte";
   import Card from "../lib/card.svelte";
   import Footer from "../lib/footer.svelte";
+  /* @type { import('./$houdini').PageData } */
+  export let data;
+  $: ({ Item } = data);
 </script>
 
 <main>
   <header>
     <Nav />
+    {$Item.data.item.item}
   </header>
   <section class="hero">
     <Title />
