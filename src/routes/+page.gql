@@ -1,9 +1,0 @@
-query Item($id: Int! = 1) {
-  item(id: $id) {
-    id
-    item
-    lot
-    price
-    sellText
-  }
-}

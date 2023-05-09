@@ -1,18 +1,25 @@
 <script lang="ts">
-  import Nav from "../lib/nav.svelte";
-  import Title from "../lib/title.svelte";
-  import Search from "../lib/search.svelte";
-  import Card from "../lib/card.svelte";
-  import Footer from "../lib/footer.svelte";
+  import Nav from "../../lib/nav.svelte";
+  import Title from "../../lib/title.svelte";
+  import Search from "../../lib/search.svelte";
+  import Card from "../../lib/card.svelte";
+  import Footer from "../../lib/footer.svelte";
   /* @type { import('./$houdini').PageData } */
   export let data;
+
   $: ({ Item } = data);
+  $: console.log($Item);
 </script>
 
 <main>
   <header>
     <Nav />
-    {$Item.data.item.item}
+    {#if $Item.fetching}
+      <h3>wait</h3>
+    {:else}
+      {$Item.data.item.item}
+      {$Item.data.item.price}
+    {/if}
   </header>
   <section class="hero">
     <Title />

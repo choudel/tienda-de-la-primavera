@@ -7,7 +7,14 @@ const config = {
     },
     "plugins": {
         "houdini-svelte": {}
+    },
+    "scalars": {
+        
+        "BigFloat": {
+          "type": "number"
+        }
     }
+     
 }
 
 export default config
