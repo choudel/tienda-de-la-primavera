@@ -13,8 +13,14 @@ const config = {
         "BigFloat": {
           "type": "number"
         }
-    }
-     
+    },
+    types: {
+        Item: {
+            resolve: {
+                queryField: "nodeId",
+            }
+        }
+    }    
 }
 
 export default config

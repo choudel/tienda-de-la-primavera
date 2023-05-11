@@ -1,9 +1,7 @@
 <script>
-  // @ts-nocheck
   let selected = "start";
   let toggle = false;
   $: toggle;
-  $: selected;
   let page_1 = [
     "page_1 Items_1",
     "page_1 Items_2",
@@ -35,13 +33,13 @@
 </script>
 
 <nav
-  class="accordion"
+  class="nav-bar"
   id="start"
   style="
-  --color1:#44746c;
-  --color2:#66876c;
-  --color3:#91986e;
-  --color4:#c1a57b"
+    --color1:#44746c;
+    --color2:#66876c;
+    --color3:#91986e;
+    --color4:#c1a57b"
 >
   <div class="first_accordion">
     <input
@@ -50,70 +48,70 @@
       name="first_accordion"
       id="section1"
     />
-    <label class="first_accordion__label" for="section1">flip </label>
+    <label class="first_accordion__label" for="section1"> Flip button</label>
     <a href="/" class="logo1"
-      ><img src="/favicon.png" alt="sensei" width="50" height="50" /></a
+      ><img src="/favicon.png" alt="elsensei" width="50" height="50" /></a
     >
 
     <div class="first_accordion__content">
       <div class="second_accordion">
         <a href="/" class="login">Login</a>
-        <a href="/" class="logo"><img src="/favicon.png" alt="sensei" /></a>
-        <a href="/" class="home">home</a>
+        <a href="/" class="logo"
+          ><img src="/favicon.png" alt="alt logo" width="50" height="50" /></a
+        >
+        <a href="/" class="home">Accueil</a>
 
         <input
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="services"
+          id="page_1"
           value="ser"
           bind:group={selected}
           on:click={selected != "ser" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="services" id="services_id"
+        <label class="second_accordion__label" for="page_1" id="page_1_id"
           >page_1</label
         >
 
         <div
           class="second_accordion__content"
-          id="services__content"
+          id="page_1__content"
           class:toggle={!toggle}
         >
-          {#if toggle}
-            <div class="sub_services">
-              {#each page_1 as detail}
-                <a href="/">{detail}</a>
-              {/each}
-            </div>
-          {/if}
+          <div class="sub_page_1">
+            {#each page_1 as detail}
+              <a href="/elsensei-fr/page_1">{detail}</a>
+            {/each}
+          </div>
         </div>
 
         <input
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="mentors"
+          id="page_2"
           value="tor"
           bind:group={selected}
           on:click={selected != "tor" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="mentors" id="mentors_id"
+        <label class="second_accordion__label" for="page_2" id="page_2_id"
           >page_2</label
         >
 
         <div
           class="second_accordion__content"
-          id="mentors__content"
+          id="page_2__content"
           class:toggle={!toggle}
         >
           {#if toggle}
-            <div class="sub_mentors">
+            <div class="sub_page_2">
               {#each page_2 as detail}
-                <a href="/">{detail}</a>
+                <a href="/elsensei-fr/page_2">{detail}</a>
               {/each}
             </div>
           {/if}
@@ -123,71 +121,63 @@
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="mentees"
+          id="page_3"
           value="tee"
           bind:group={selected}
           on:click={selected != "tee" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label class="second_accordion__label" for="mentees" id="mentees_id"
+        <label class="second_accordion__label" for="page_3" id="page_3_id"
           >page_3</label
         >
 
         <div
           class="second_accordion__content"
-          id="mentees__content"
+          id="page_3__content"
           class:toggle={!toggle}
         >
-          {#if toggle}
-            <div class="sub_mentees">
-              {#each page_3 as detail}
-                <a href="/">{detail}</a>
-              {/each}
-            </div>
-          {/if}
+          <div class="sub_page_3">
+            {#each page_3 as detail}
+              <a href="/elsensei-fr/page_3">{detail}</a>
+            {/each}
+          </div>
         </div>
 
         <input
           class="second_accordion__input"
           type="radio"
           name="second_accordion"
-          id="certifications"
+          id="page_4"
           value="cer"
           bind:group={selected}
           on:click={selected != "cer" || !toggle
             ? () => (toggle = true)
             : () => (toggle = !toggle)}
         />
-        <label
-          class="second_accordion__label"
-          for="certifications"
-          id="certifications_id">page_4</label
+        <label class="second_accordion__label" for="page_4" id="page_4_id"
+          >page_4</label
         >
 
         <div
           class="second_accordion__content"
-          id="certifications__content"
+          id="page_4__content"
           class:toggle={!toggle}
         >
-          {#if toggle}
-            <div class="sub_certifications">
-              {#each page_4 as detail}
-                <a href="/">{detail}</a>
-              {/each}
-            </div>
-          {/if}
+          <div class="sub_page_4">
+            {#each page_4 as detail}
+              <a href="/elsensei-fr/page_4">{detail}</a>
+            {/each}
+          </div>
         </div>
 
-        <a href="/" class="blog">Page_5</a>
+        <a href="/page_5" class="blog">Page_5</a>
       </div>
     </div>
   </div>
-  {#if toggle}
-    <div class="test" class:toggle={!toggle} on:click={() => (toggle = false)}>
-      <a href="/">{!toggle ? "" : "close"}</a>
-    </div>
-  {/if}
+  <div class="test" class:toggle={!toggle} on:click={() => (toggle = false)}>
+    {!toggle ? "" : "close"}
+  </div>
 </nav>
 
 <style lang="scss">
@@ -196,82 +186,61 @@
   $color_en: #325e66;
   $color_ar: #2f4858;
   $height: 4vh;
-  .accordion {
-    color: #004242;
+  //first nav
+  .nav-bar {
+    color: white;
     min-height: $height;
+    font-family: "Lexend Deca", sans-serif;
+    font-family: "Noto Sans Arabic", sans-serif;
   }
   a {
-    color: #004242;
+    color: whitesmoke;
     text-align: center;
     text-decoration: none;
     padding: 10px 10px;
   }
   .toggle {
     height: 0px;
-    padding: 0px;
   }
   .test {
     background-color: var(--color4);
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
-    z-index: 2;
-    cursor: pointer;
     text-align: center;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    &:hover {
-      background-color: #756fdc25;
-    }
-    @media only screen and (max-width: $break) {
-      &:hover {
-        background-color: #756fdc25;
-      }
-    }
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
   }
   .first_accordion {
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     min-height: $height;
+    box-shadow: 0 0 10px rgba($color: var(--color1), $alpha: 1);
+    border-radius: 5px 5px;
+    overflow: hidden;
     background: var(--color1);
     display: grid;
-    border-radius: 10px;
     grid-template-areas:
-      "logo1 . button"
-      "coll coll coll";
-    grid-template-columns: 100px auto 100px;
+      "logo1 button"
+      "coll coll";
+    grid-template-columns: 100px auto;
   }
   .first_accordion__input {
     display: none;
     background-color: var(--color2);
-
     @media only screen and (max-width: $break) {
       &:checked ~ .first_accordion__content {
         display: grid;
       }
     }
   }
-
   .first_accordion__label {
-    &:hover {
-      background-color: #a9145c10;
-      border-radius: 0 10px 10px 0;
-    }
     display: none;
     grid-area: button;
     cursor: pointer;
     padding: 10px;
-    border-radius: 10px;
     @media only screen and (max-width: $break) {
       display: grid;
-      align-items: center;
-      justify-items: end;
-      padding-right: 15px;
-      max-width: 100px;
+      text-align: right;
     }
   }
-
   .first_accordion__content {
+    font-size: 1rem;
     display: grid;
     text-align: center;
     grid-area: coll;
@@ -286,32 +255,26 @@
       display: grid;
       text-align: left;
     }
-    &:hover {
-      background-color: #a9145c10;
-      border-radius: 10px 0 0 10px;
-    }
-  }
-  .logo1 > img {
-    height: 50px;
-    width: 50px;
   }
   .second_accordion {
     align-items: center;
-    border-radius: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--color1);
     display: grid;
     grid-template-areas:
-      "logo home services mentor mentee certif blog . login "
+      "logo home page_1 mentor mentee certif blog . login "
       "ser ser ser ser ser ser ser ser ser"
       "tors tors tors tors tors tors tors tors tors"
       "tees tees tees tees tees tees tees tees tees"
       "cer cer cer cer cer cer cer cer cer";
-    grid-template-columns: 100px 100px 100px 100px 100px 140px 100px auto 100px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px auto 100px;
     @media only screen and (max-width: $break) {
       grid-template-areas:
         "logo"
         "login"
         "home"
-        "services"
+        "page_1"
         "ser"
         "mentor"
         "tors"
@@ -321,7 +284,7 @@
         "cer"
         "blog";
       grid-template-columns: auto;
-      border-radius: 0 0 10px 10px;
+      background-color: var(--color2);
     }
   }
   .second_accordion__input {
@@ -334,49 +297,32 @@
     display: grid;
     cursor: pointer;
     padding: 10px 10px;
-    z-index: 1;
   }
   .second_accordion__content {
     text-align: left;
     display: none;
   }
-
   .second_accordion__content > div {
     display: grid;
     padding: 10px;
-    border-radius: 0 0 10px 10px;
   }
   .second_accordion__content > div > a {
+    cursor: pointer;
     display: grid;
     padding: 10px;
     text-align: left;
-    margin: 2px;
-    border: 1px solid;
-    border-color: #b047ae50;
-    border-radius: 10px;
-    &:hover {
-      background-color: #b047ae10;
-    }
   }
   .logo {
     display: grid;
     grid-area: logo;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
-    border-radius: 10px;
     @media only screen and (max-width: $break) {
       display: none;
       background-color: var(--color2);
     }
-    &:hover {
-      background-color: #a9145c25;
-      border-radius: 10px 0 0 10px;
-    }
-  }
-  .logo > img {
-    height: 50px;
-    width: 50px;
   }
   .home {
     display: grid;
@@ -384,173 +330,143 @@
     align-items: center;
     justify-items: center;
     grid-area: home;
+    background-color: var(--color1);
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
     }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
-    }
   }
-
   .login {
     display: grid;
     grid-area: login;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
-    border-radius: 0 10px 10px 0;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
-      border-radius: 0;
-    }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
     }
   }
-  #services {
-    &:checked ~ #services__content {
+  #page_1 {
+    &:checked ~ #page_1__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #services__content {
+      &:checked ~ #page_1__content {
         display: grid;
       }
     }
   }
-  #services_id {
+  #page_1_id {
     display: grid;
-    grid-area: services;
+    grid-area: page_1;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
     }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
-    }
   }
-  #services__content {
+  #page_1__content {
     grid-area: ser;
   }
-  .sub_services {
+  .sub_page_1 {
     background-color: var(--color3);
   }
-
-  #mentors {
-    &:checked ~ #mentors__content {
+  #page_2 {
+    &:checked ~ #page_2__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #mentors__content {
+      &:checked ~ #page_2__content {
         display: grid;
       }
     }
   }
-  #mentors_id {
+  #page_2_id {
     display: grid;
     grid-area: mentor;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
     }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
-    }
   }
-  #mentors__content {
+  #page_2__content {
     grid-area: tors;
   }
-  .sub_mentors {
+  .sub_page_2 {
     background-color: var(--color3);
   }
-  #mentees {
-    &:checked ~ #mentees__content {
+  #page_3 {
+    &:checked ~ #page_3__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #mentees__content {
+      &:checked ~ #page_3__content {
         display: grid;
       }
     }
   }
-  #mentees_id {
+  #page_3_id {
     display: grid;
     grid-area: mentee;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
     }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
-    }
   }
-  #mentees__content {
+  #page_3__content {
     grid-area: tees;
   }
-  .sub_mentees {
+  .sub_page_3 {
     background-color: var(--color3);
   }
-  #certifications {
-    &:checked ~ #certifications__content {
+  #page_4 {
+    &:checked ~ #page_4__content {
       display: grid;
     }
     @media only screen and (max-width: $break) {
       display: none;
-      &:checked ~ #certifications__content {
+      &:checked ~ #page_4__content {
         display: grid;
       }
     }
   }
-  #certifications_id {
-    padding-right: 10px;
-    padding-left: 10px;
+  #page_4_id {
     display: grid;
     grid-area: certif;
-    max-width: 140px;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
-      max-width: 100vw;
-    }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
     }
   }
-  #certifications__content {
+  #page_4__content {
     grid-area: cer;
   }
-  .sub_certifications {
+  .sub_page_4 {
     background-color: var(--color3);
   }
   .blog {
     display: grid;
     grid-area: blog;
+    background-color: var(--color1);
     min-height: $height;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
-      border-radius: 0 0 10px 10px;
-    }
-    &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
     }
   }
 </style>

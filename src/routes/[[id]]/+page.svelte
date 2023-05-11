@@ -7,18 +7,21 @@
   /* @type { import('./$houdini').PageData } */
   export let data;
 
-  $: ({ Item } = data);
-  $: console.log($Item);
+  $: ({ Items } = data);
+  $: console.log($Items);
 </script>
 
 <main>
   <header>
     <Nav />
-    {#if $Item.fetching}
+    {#if $Items.fetching}
       <h3>wait</h3>
     {:else}
-      {$Item.data.item.item}
-      {$Item.data.item.price}
+      {#each $Items.data.items.nodes as node}
+        {node.id}
+      {:else}
+        <p>No Favorites Selected</p>
+      {/each}
     {/if}
   </header>
   <section class="hero">
@@ -26,10 +29,7 @@
     <Search />
   </section>
   <section class="container">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <Card item={$Items.data} />
   </section>
   <footer>
     <Footer />
@@ -38,8 +38,9 @@
 
 <style lang="scss">
   main {
+    z-index: 0;
     display: grid;
-    grid-template-rows: 10vmax 35vmax 35vmax 20vmax;
+    grid-template-rows: auto 35vmax 35vmax 20vmax;
     background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0) 0%,
@@ -52,9 +53,11 @@
     }
   }
   header {
+    z-index: 2;
     padding: 16px;
   }
   section {
+    z-index: 1;
     padding-left: 74px;
     padding-right: 74px;
     @media only screen and (max-width: 815px) {
@@ -63,7 +66,7 @@
     }
   }
   .container {
-    display: grid;
+    z-index: 1;
     grid-template-columns: auto auto auto auto;
     gap: 8px;
     @media only screen and (max-width: 815px) {

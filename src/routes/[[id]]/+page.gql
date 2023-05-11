@@ -1,8 +1,10 @@
-query Item($id: Int! = 1){
-item(id:$id){
-id 
-item 
-price
+query Items {
+  items (first: 4)@paginate(mode: SinglePage){
+
+    nodes {
+    id
+    nodeId
+    ...itemInfo
+    }
+    }
 }
-}
-  
