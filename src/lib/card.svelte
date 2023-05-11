@@ -20,21 +20,26 @@
       }
     `)
   );
-  $: console.log($stuff.items.nodes[0]);
+  $: console.log($stuff.items.nodes);
 </script>
 
-{#each $stuff.items.nodes as node}
-  <div class="card">
-    <div class="item-pic">
-      <img src="bag-mini.png" alt="bag" />
+{#if !$stuff}
+  <h1>div</h1>
+{:else}
+  {#each $stuff.items.nodes as node}
+    <div class="card">
+      <div class="item-pic">
+        <img src="bag-mini.png" alt="bag" />
+      </div>
+      <div class="label">
+        <div class="item-name">{node.item}</div>
+        <div class="sell-text">{node.sellText}</div>
+        <div class="price">{node.price} D.A</div>
+      </div>
     </div>
-    <div class="label">
-      <div class="item-name">{node.item}</div>
-      <div class="sell-text">{node.sellText}</div>
-      <div class="price">{node.price} D.A</div>
-    </div>
-  </div>
-{/each}
+  {/each}
+{/if}
+
 <slot />
 
 <style lang="scss">
