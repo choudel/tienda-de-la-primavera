@@ -3,10 +3,24 @@
 </div>
 
 <style lang="scss">
+  * {
+    font-family: "Montserrat Alternates Regular";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
   .footer {
     height: calc(20vmax - 8px);
     display: grid;
-    background-color: #a4bc92;
+    background-color: #b3c99c;
     justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-width: 2px 2px 0px 2px;
+    border-style: solid;
+    border-color: #ddffbb;
+    border-radius: 32px 32px 0px 0px;
+    text-align: center;
   }
 </style>

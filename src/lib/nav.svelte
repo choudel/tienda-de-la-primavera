@@ -38,10 +38,10 @@
   class="accordion"
   id="start"
   style="
-  --color1:#44746c;
-  --color2:#66876c;
-  --color3:#91986e;
-  --color4:#c1a57b"
+  --color1:#B3C99C;
+  --color2:#C7E9B0;
+  --color3:#DDFFBB;
+  --color4:#A4BC92"
 >
   <div class="first_accordion">
     <input
@@ -50,15 +50,17 @@
       name="first_accordion"
       id="section1"
     />
-    <label class="first_accordion__label" for="section1">flip </label>
-    <a href="/" class="logo1"
-      ><img src="/favicon.png" alt="sensei" width="50" height="50" /></a
-    >
+    <label class="first_accordion__label" for="section1"
+      ><div class="icon">
+        <img src="/static/humberger.svg" alt="humburger" />
+      </div>
+    </label>
+    <a href="/" class="logo1"><div class="icon">P</div></a>
 
     <div class="first_accordion__content">
       <div class="second_accordion">
         <a href="/" class="login">Login</a>
-        <a href="/" class="logo"><img src="/favicon.png" alt="sensei" /></a>
+        <a href="/" class="logo"><div class="icon">P</div></a>
         <a href="/" class="home">home</a>
 
         <input
@@ -192,13 +194,40 @@
 
 <style lang="scss">
   $break: 815px;
-  $color_fr: #44746c;
-  $color_en: #325e66;
-  $color_ar: #2f4858;
   $height: 4vh;
+  $shadow: #ddffbb20;
+  @font-face {
+    font-family: "Montserrat Alternates Regular";
+    src: url("static/MontserratAlternates-Regular.ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat Alternates Bold";
+    src: url("static/MontserratAlternates-bold.ttf");
+    font-display: swap;
+  }
+  * {
+    font-family: "Montserrat Alternates Regular";
+  }
   .accordion {
     color: #004242;
     min-height: $height;
+  }
+  .icon {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    font-family: "Montserrat Alternates Bold";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ddffbb;
+    border-radius: 50px;
   }
   a {
     color: #004242;
@@ -212,20 +241,20 @@
   }
   .test {
     background-color: var(--color4);
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 32px;
     z-index: 2;
     cursor: pointer;
     text-align: center;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     &:hover {
-      background-color: #756fdc25;
+      background-color: $shadow;
     }
     @media only screen and (max-width: $break) {
       &:hover {
-        background-color: #756fdc25;
+        background-color: $shadow;
       }
     }
   }
@@ -234,8 +263,9 @@
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     min-height: $height;
     background: var(--color1);
+    border: 2px solid #ddffbb;
     display: grid;
-    border-radius: 10px;
+    border-radius: 32px;
     grid-template-areas:
       "logo1 . button"
       "coll coll coll";
@@ -254,8 +284,8 @@
 
   .first_accordion__label {
     &:hover {
-      background-color: #a9145c10;
-      border-radius: 0 10px 10px 0;
+      background-color: $shadow;
+      border-radius: 0 32px 32px 0;
     }
     display: none;
     grid-area: button;
@@ -287,8 +317,8 @@
       text-align: left;
     }
     &:hover {
-      background-color: #a9145c10;
-      border-radius: 10px 0 0 10px;
+      background-color: $shadow;
+      border-radius: 32px 0 0 32px;
     }
   }
   .logo1 > img {
@@ -297,7 +327,7 @@
   }
   .second_accordion {
     align-items: center;
-    border-radius: 10px;
+    border-radius: 32px;
     display: grid;
     grid-template-areas:
       "logo home services mentor mentee certif blog . login "
@@ -305,7 +335,7 @@
       "tors tors tors tors tors tors tors tors tors"
       "tees tees tees tees tees tees tees tees tees"
       "cer cer cer cer cer cer cer cer cer";
-    grid-template-columns: 100px 100px 100px 100px 100px 140px 100px auto 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr auto 1fr;
     @media only screen and (max-width: $break) {
       grid-template-areas:
         "logo"
@@ -321,7 +351,7 @@
         "cer"
         "blog";
       grid-template-columns: auto;
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 32px 32px;
     }
   }
   .second_accordion__input {
@@ -344,7 +374,7 @@
   .second_accordion__content > div {
     display: grid;
     padding: 10px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 32px 32px;
   }
   .second_accordion__content > div > a {
     display: grid;
@@ -353,7 +383,7 @@
     margin: 2px;
     border: 1px solid;
     border-color: #b047ae50;
-    border-radius: 10px;
+    border-radius: 32px;
     &:hover {
       background-color: #b047ae10;
     }
@@ -364,14 +394,14 @@
     min-height: $height;
     align-items: center;
     justify-items: center;
-    border-radius: 10px;
+    border-radius: 32px;
     @media only screen and (max-width: $break) {
       display: none;
       background-color: var(--color2);
     }
     &:hover {
-      background-color: #a9145c25;
-      border-radius: 10px 0 0 10px;
+      background-color: $shadow;
+      border-radius: 32px 0 0 32px;
     }
   }
   .logo > img {
@@ -388,8 +418,8 @@
       background-color: var(--color2);
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
 
@@ -399,14 +429,14 @@
     min-height: $height;
     align-items: center;
     justify-items: center;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 32px 32px 0;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
       border-radius: 0;
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
   #services {
@@ -430,8 +460,8 @@
       background-color: var(--color2);
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
   #services__content {
@@ -462,8 +492,8 @@
       background-color: var(--color2);
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
   #mentors__content {
@@ -493,8 +523,8 @@
       background-color: var(--color2);
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
   #mentees__content {
@@ -515,8 +545,8 @@
     }
   }
   #certifications_id {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 8px;
+    padding-left: 18px;
     display: grid;
     grid-area: certif;
     max-width: 140px;
@@ -528,8 +558,8 @@
       max-width: 100vw;
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
   #certifications__content {
@@ -546,11 +576,11 @@
     justify-items: center;
     @media only screen and (max-width: $break) {
       background-color: var(--color2);
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 32px 32px;
     }
     &:hover {
-      background-color: #a9145c25;
-      min-height: 50px;
+      background-color: $shadow;
+      min-height: 56px;
     }
   }
 </style>

@@ -25,7 +25,7 @@
 {#each stuff.items.nodes as node}
   <div class="card">
     <div class="item-pic">
-      <img src="bag-mini.png" alt="bag" />
+      <img src="/static/shirt-mini.png" alt="bag" />
     </div>
     <div class="label">
       <div class="item-name">{node.item}</div>
